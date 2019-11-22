@@ -48,41 +48,35 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
-      },
-      {
-        test: /.(css|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              plugins: () => [require("cssnano")],
-              sourceMap: true
-            }
-          },
-          "sass-loader"
-        ]
-      },
-      {
-        test: /.(jpg|jpeg|png|gif|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'babel-loader',
             options: {
-              name: "[path][name]-[hash:8].[ext]"
-            }
-          }
-        ]
-      }
-    ]
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: [
+                '@babel/plugin-proposal-object-rest-spread',
+                '@babel/plugin-proposal-class-properties',
+                '@babel/plugin-transform-runtime',
+                '@babel/plugin-transform-arrow-functions',
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(css)$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+    ],
   }
 };
