@@ -48,35 +48,29 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jsx|js)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
+        use: ["babel-loader"]
+      },
+      {
+        test: /.(css|scss)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
+      },
+      {
+        test: /.(jpg|jpeg|png|gif|svg)$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "file-loader",
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: [
-                '@babel/plugin-proposal-object-rest-spread',
-                '@babel/plugin-proposal-class-properties',
-                '@babel/plugin-transform-runtime',
-                '@babel/plugin-transform-arrow-functions',
-              ],
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(css)$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|otf|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
-    ],
+              name: "[path][name]-[hash:8].[ext]"
+            }
+          }
+        ]
+      }
+    ]
   }
 };
