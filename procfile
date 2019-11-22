@@ -1,0 +1,1 @@
+web --mode production npm run build
