@@ -63,7 +63,7 @@ module.exports = {
             }
           },
           {
-            loader: "postcss-loader",
+            loader: "css-loader",
             options: {
               plugins: () => [require("cssnano")],
               sourceMap: true
