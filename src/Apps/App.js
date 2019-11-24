@@ -17,7 +17,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/index" render= {() => (
+        <Route exact path="/" render={() => (
+          <center><a href="/index">Index</a></center>
+        )} />
+        <Route exact path="/index" render= {() => (
           <React.Fragment>
             <Header />
             <Intro />
@@ -25,14 +28,14 @@ class App extends Component {
             <Footer />
           </React.Fragment>
         )} />
-        <Route path="/signin" render={() => (
+        <Route exact path="/signin" render={() => (
           <React.Fragment>
             <HeaderSignin />
             <BodySignin />
             <FooterSignin />
           </React.Fragment>
         )} />
-        <Route path="/signup" render={() => (
+        <Route exact path="/signup" render={() => (
           <React.Fragment>
             <HeaderSignup />
             <BodySignup />
