@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-// const Dotenv = require("dotenv-webpack");
+const Dotenv = require("dotenv-webpack");
 
 process.env.NODE_ENV = "production";
 
@@ -17,13 +17,13 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-    // new Dotenv({
-    //   path: path.resolve(__dirname, "./.env"),
-    //   safe: true,
-    //   systemvars: true,
-    //   silent: true,
-    //   defaults: false
-    // }),
+    new Dotenv({
+      path: path.resolve(__dirname, "./.env"),
+      safe: true,
+      systemvars: true,
+      silent: true,
+      defaults: false
+    }),
     new BundleAnalyzerPlugin({ analyzerMode: "static" }),
     new MiniCssExtractPlugin({
       filename: "[name].[contentHash].css"
