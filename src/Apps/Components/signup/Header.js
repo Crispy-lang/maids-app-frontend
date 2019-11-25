@@ -11,7 +11,7 @@ function Header () {
         <nav>
           <ul>
             <li><a href="/signin">Sign In</a></li>
-            <li><a href="/index" >Home</a></li>
+            <li><a href="/" >Home</a></li>
           </ul>
         </nav>
       </div>

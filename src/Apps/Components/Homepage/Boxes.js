@@ -55,7 +55,7 @@ class Boxes extends React.Component {
           <h1>Available Vehicle</h1>
           {this.state.Boxes.map((box) => (
             <div className="box">
-              <h3><a href="#">#3. Rav4</a> </h3>
+              <h3><a href="#">#{box.id}. Rav4</a> </h3>
               <img src={box.src} />
               <p>Number : {box.number}</p>
               <p>{box.type}</p>

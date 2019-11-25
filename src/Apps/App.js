@@ -17,10 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" render={() => (
-          <center><a href="/index"> Index </a></center>
-        )} />
-        <Route exact path="/index" render= {() => (
+        <Route exact path="/" render= {() => (
           <React.Fragment>
             <Header />
             <Intro />
